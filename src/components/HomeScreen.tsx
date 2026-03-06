@@ -6,7 +6,7 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
   // 1. Split your data into distinct arrays for each shelf
   const trendingQuizzes = [
     {
-      id: "aura-color",
+      id: "aura",
       title: "What's Your Aura Color?",
       description: "Discover the energy you project to the world.",
       icon: <Flame className="w-6 h-6 text-orange-500 fill-orange-500" />,

@@ -29,7 +29,7 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
       icon: <Sparkles className="w-6 h-6 text-amber-500" />,
       color: "bg-amber-100",
       image: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=600&auto=format&fit=crop",
-      comingSoon: true,
+      comingSoon: false,
     }
   ];
 

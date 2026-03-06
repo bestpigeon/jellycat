@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   // Use your repo name here for correct routing
-  base: '/website/', 
+  base: './', 
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

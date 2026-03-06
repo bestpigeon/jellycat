@@ -166,14 +166,16 @@ export function WordleGame({ onBack }: { onBack: () => void }) {
   });
 
   return (
-    <div className="w-full max-w-lg mx-auto relative pt-12 sm:pt-0 flex flex-col items-center">
-      <button 
-        onClick={onBack}
-        className="absolute top-0 sm:-top-16 left-0 flex items-center gap-2 text-slate-500 hover:text-slate-800 transition-colors font-medium z-50"
-      >
-        <Home className="w-4 h-4" />
-        Back to Quizzes
-      </button>
+    <div className="w-full max-w-lg mx-auto relative flex flex-col">
+      <div className="mb-6 sm:absolute sm:-top-16 sm:left-0 sm:mb-0 z-50">
+        <button 
+          onClick={onBack}
+          className="flex items-center gap-2 text-slate-500 hover:text-slate-800 transition-colors font-medium"
+        >
+          <Home className="w-4 h-4" />
+          Back to Quizzes
+        </button>
+      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}

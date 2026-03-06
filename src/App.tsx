@@ -4,6 +4,8 @@ import { HomeScreen } from "./components/HomeScreen";
 import { JellycatQuiz } from "./quizzes/JellycatQuiz";
 import { CoffeeQuiz } from "./quizzes/CoffeeQuiz";
 import { AuraQuiz } from "./quizzes/AuraQuiz";
+import { TaylorQuiz } from "./quizzes/TaylorQuiz";
+
 
 // Added "aura" to the allowed view states
 type MainViewState = "home" | "jellycat" | "coffee" | "aura";

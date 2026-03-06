@@ -14,15 +14,6 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
       comingSoon: false,
     },
     {
-      id: "houseplant",
-      title: "What Houseplant Matches Your Vibe?",
-      description: "Are you a dramatic Monstera or a resilient Pothos?",
-      icon: <Sparkles className="w-6 h-6 text-emerald-500" />,
-      color: "bg-emerald-100",
-      image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?q=80&w=600&auto=format&fit=crop",
-      comingSoon: true,
-    },
-    {
       id: "coffee",
       title: "Your Coffee Order Personality",
       description: "Discover what your morning brew says about you.",
@@ -30,6 +21,15 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
       color: "bg-amber-100",
       image: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=600&auto=format&fit=crop",
       comingSoon: false,
+    },
+    {
+      id: "houseplant",
+      title: "What Houseplant Matches Your Vibe?",
+      description: "Are you a dramatic Monstera or a resilient Pothos?",
+      icon: <Sparkles className="w-6 h-6 text-emerald-500" />,
+      color: "bg-emerald-100",
+      image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?q=80&w=600&auto=format&fit=crop",
+      comingSoon: true,
     }
   ];
 

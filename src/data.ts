@@ -52,7 +52,7 @@ export const results: Record<string, JellycatResult> = {
     imageUrl: "https://m.media-amazon.com/images/I/61WaV5CvCLL._AC_SL1500_.jpg",
     color: "bg-emerald-100 text-emerald-800",
     buttonColor: "bg-emerald-600",
-    link: "https://us.jellycat.com/animals/dinosaurs",
+    link: "https://us.jellycat.com/animals/dragons-dinosaurs",
   },
   dogs: {
     id: "dogs",
@@ -90,14 +90,14 @@ export const results: Record<string, JellycatResult> = {
     buttonColor: "bg-blue-600",
     link: "https://us.jellycat.com/animals/ocean",
   },
-  pets: {
-    id: "pets",
-    name: "Pets",
+  bunnies: {
+    id: "bunnies",
+    name: "Bunnies",
     description: "Sweet, classic, and always there for a hug. You value comfort, deep friendships, and quiet moments. You are a loyal friend who loves to make others feel safe.",
     imageUrl: "https://m.media-amazon.com/images/I/71QOusOFy7L._AC_SL1500_.jpg",
     color: "bg-rose-100 text-rose-800",
     buttonColor: "bg-rose-600",
-    link: "https://us.jellycat.com/animals/pets",
+    link: "https://us.jellycat.com/animals/bunnies",
   },
   woodland: {
     id: "woodland",
@@ -126,7 +126,7 @@ export const questions: Question[] = [
     id: 1,
     question: "What does your ideal weekend look like?",
     options: [
-      { text: "Curled up at home with a good book and tea", pointsTo: ["cats", "pets", "woodland"] },
+      { text: "Curled up at home with a good book and tea", pointsTo: ["cats", "bunnies", "woodland"] },
       { text: "Exploring a new hiking trail or park", pointsTo: ["jungle", "dinosaurs", "birds"] },
       { text: "Hanging out at a cozy cafe with friends", pointsTo: ["dogs", "farmyard"] },
       { text: "Going to the beach or an aquarium", pointsTo: ["ocean", "amphibians"] },
@@ -137,7 +137,7 @@ export const questions: Question[] = [
     id: 2,
     question: "How do you usually handle stress?",
     options: [
-      { text: "I need to talk it out with my best friend", pointsTo: ["dogs", "pets"] },
+      { text: "I need to talk it out with my best friend", pointsTo: ["dogs", "bunnies"] },
       { text: "I retreat to my room and need alone time", pointsTo: ["cats", "amphibians", "bugs"] },
       { text: "I try to find a practical solution immediately", pointsTo: ["farmyard", "dinosaurs"] },
       { text: "I go for a walk or exercise to clear my head", pointsTo: ["jungle", "birds"] },
@@ -151,14 +151,14 @@ export const questions: Question[] = [
       { text: "Earthy greens and browns", pointsTo: ["woodland", "amphibians", "dinosaurs"] },
       { text: "Deep ocean blues and teals", pointsTo: ["ocean", "birds"] },
       { text: "Warm sunny yellows and oranges", pointsTo: ["jungle", "farmyard", "dogs"] },
-      { text: "Soft pastel pinks and purples", pointsTo: ["bugs", "pets", "cats"] },
+      { text: "Soft pastel pinks and purples", pointsTo: ["bugs", "bunnies", "cats"] },
     ],
   },
   {
     id: 4,
     question: "What's your role in your friend group?",
     options: [
-      { text: "The Mom/Dad - always making sure everyone is okay", pointsTo: ["farmyard", "dogs", "pets"] },
+      { text: "The Mom/Dad - always making sure everyone is okay", pointsTo: ["farmyard", "dogs", "bunnies"] },
       { text: "The Adventurer - always suggesting crazy new plans", pointsTo: ["jungle", "dinosaurs", "birds"] },
       { text: "The Listener - giving the best advice", pointsTo: ["ocean", "woodland"] },
       { text: "The Observer - quiet but notices everything", pointsTo: ["cats", "amphibians", "bugs"] },
@@ -166,13 +166,12 @@ export const questions: Question[] = [
   },
   {
     id: 5,
-    question: "Choose a snack:",
+    question: "What's your favorite time of day?",
     options: [
-      { text: "Fresh fruit or berries", pointsTo: ["birds", "jungle", "bugs"] },
-      { text: "A warm, freshly baked pastry", pointsTo: ["pets", "farmyard", "woodland"] },
-      { text: "Something salty like chips or pretzels", pointsTo: ["ocean", "dinosaurs"] },
-      { text: "A fancy piece of dark chocolate", pointsTo: ["cats", "amphibians"] },
-      { text: "Whatever my friends are sharing!", pointsTo: ["dogs"] },
+      { text: "Early morning - I love the quiet before the world wakes up", pointsTo: ["birds", "farmyard", "woodland"] },
+      { text: "The middle of the day - I'm most active when it's bright", pointsTo: ["dogs", "jungle"] },
+      { text: "Golden hour - everything looks magical and warm", pointsTo: ["cats", "bunnies", "dinosaurs"] },
+      { text: "Late at night - I'm a total night owl", pointsTo: ["ocean", "amphibians", "bugs"] },
     ],
   },
 ];

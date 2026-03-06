@@ -10,7 +10,7 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
       description: "Find your plushie soulmate in this cozy 5-question quiz.",
       icon: <Heart className="w-6 h-6 text-rose-500 fill-rose-500" />,
       color: "bg-rose-100",
-      image: "https://images.unsplash.com/photo-1534142498263-14909289255a?q=80&w=600&auto=format&fit=crop", 
+      image: "https://t3.gstatic.com/images?q=tbn:ANd9GcQzgr8gWNgYWlMlXa_lml5zu_MlLwFRJwcgxrU7wQItNYw6hU_rNptA6tnpaf87Qw", 
       comingSoon: false,
     },
     {

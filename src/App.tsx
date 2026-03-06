@@ -246,8 +246,8 @@ function ResultScreen({
         </motion.h2>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1.2 }}
           transition={{ delay: 0.5, type: "spring" }}
           className="relative w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-8 border-white shadow-xl"
         >
@@ -255,7 +255,7 @@ function ResultScreen({
             src={result.imageUrl}
             alt={result.name}
             referrerPolicy="no-referrer"
-            className="w-full h-full object-cover"
+            className="relative z-10 w-full h-full object-contain drop-shadow-lg"
           />
           <div className="absolute inset-0 bg-black/5 mix-blend-overlay" />
         </motion.div>

@@ -20,7 +20,7 @@ export const results: Record<string, JellycatResult> = {
   },
   birds: {
     id: "birds",
-    name: "Birds",
+    name: "Bird",
     description: "Free-spirited, observant, and always ready to take flight on a new adventure. You love seeing the world from a different perspective and value your independence.",
     imageUrl: "https://m.media-amazon.com/images/I/516C5thuiQL._AC_SL1000_.jpg",
     color: "bg-sky-100 text-sky-800",
@@ -29,7 +29,7 @@ export const results: Record<string, JellycatResult> = {
   },
   bugs: {
     id: "bugs",
-    name: "Bugs & Insects",
+    name: "Bug",
     description: "Small but mighty! You are detail-oriented, hardworking, and find beauty in the little things that others might overlook. You bring a flutter of joy wherever you go.",
     imageUrl: "https://m.media-amazon.com/images/I/71ev8mkoWLL._AC_SL1500_.jpg",
     color: "bg-pink-100 text-pink-800",
@@ -38,7 +38,7 @@ export const results: Record<string, JellycatResult> = {
   },
   cats: {
     id: "cats",
-    name: "Cats & Kittens",
+    name: "Kitten",
     description: "Elegant, independent, and just a little bit sassy. You know what you want and aren't afraid to ask for it, but you also have a soft, affectionate side for those you trust.",
     imageUrl: "https://m.media-amazon.com/images/I/811ppPMTpML._AC_SL1500_.jpg",
     color: "bg-purple-100 text-purple-800",
@@ -47,7 +47,7 @@ export const results: Record<string, JellycatResult> = {
   },
   dinosaurs: {
     id: "dinosaurs",
-    name: "Dinosaurs",
+    name: "Dinosaur",
     description: "Bold, energetic, and a little bit prehistoric! You have a big personality, love making a statement, and are fiercely protective of your friends and family.",
     imageUrl: "https://m.media-amazon.com/images/I/61WaV5CvCLL._AC_SL1500_.jpg",
     color: "bg-emerald-100 text-emerald-800",
@@ -56,7 +56,7 @@ export const results: Record<string, JellycatResult> = {
   },
   dogs: {
     id: "dogs",
-    name: "Dogs & Puppies",
+    name: "Puppy",
     description: "Loyal, playful, and always happy to see your loved ones. You are the ultimate best friend, bringing boundless energy and unconditional love to every situation.",
     imageUrl: "https://m.media-amazon.com/images/I/71Tzo6bT8bL._AC_SL1500_.jpg",
     color: "bg-amber-100 text-amber-800",
@@ -65,7 +65,7 @@ export const results: Record<string, JellycatResult> = {
   },
   farmyard: {
     id: "farmyard",
-    name: "Farmyard",
+    name: "Farmyard Pet",
     description: "Down-to-earth, reliable, and deeply connected to your roots. You enjoy the simple pleasures in life, value hard work, and love a good, hearty meal with friends.",
     imageUrl: "https://m.media-amazon.com/images/I/41nTM60ohnL._AC_SL1000_.jpg",
     color: "bg-red-100 text-red-800",
@@ -74,7 +74,7 @@ export const results: Record<string, JellycatResult> = {
   },
   jungle: {
     id: "jungle",
-    name: "Jungle & Safari",
+    name: "Jungle & Safari Pet",
     description: "Wild, adventurous, and always seeking the next thrill. You thrive in vibrant environments, love exploring the unknown, and have a naturally charismatic presence.",
     imageUrl: "https://m.media-amazon.com/images/I/71XxJ+82AoL._AC_SL1500_.jpg",
     color: "bg-yellow-100 text-yellow-800",
@@ -83,7 +83,7 @@ export const results: Record<string, JellycatResult> = {
   },
   ocean: {
     id: "ocean",
-    name: "Ocean",
+    name: "Ocean Pet",
     description: "Deep, mysterious, and incredibly adaptable. You go with the flow, have a calming presence, and possess hidden depths that only a few get to truly explore.",
     imageUrl: "https://m.media-amazon.com/images/I/71wSjSjBuSL._AC_SL1500_.jpg",
     color: "bg-blue-100 text-blue-800",
@@ -92,7 +92,7 @@ export const results: Record<string, JellycatResult> = {
   },
   bunnies: {
     id: "bunnies",
-    name: "Bunnies",
+    name: "Bunny",
     description: "Sweet, classic, and always there for a hug. You value comfort, deep friendships, and quiet moments. You are a loyal friend who loves to make others feel safe.",
     imageUrl: "https://m.media-amazon.com/images/I/71QOusOFy7L._AC_SL1500_.jpg",
     color: "bg-rose-100 text-rose-800",

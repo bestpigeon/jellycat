@@ -3,8 +3,10 @@ import { AnimatePresence } from "motion/react";
 import { HomeScreen } from "./components/HomeScreen";
 import { JellycatQuiz } from "./quizzes/JellycatQuiz";
 import { CoffeeQuiz } from "./quizzes/CoffeeQuiz";
+import { AuraQuiz } from "./quizzes/AuraQuiz";
 
-type MainViewState = "home" | "jellycat" | "coffee";
+// Added "aura" to the allowed view states
+type MainViewState = "home" | "jellycat" | "coffee" | "aura";
 
 export default function App() {
   const [currentView, setCurrentView] = useState<MainViewState>("home");
@@ -22,10 +24,12 @@ export default function App() {
           {currentView === "coffee" && (
             <CoffeeQuiz key="coffee" onBack={() => setCurrentView("home")} />
           )}
+          {/* Added the new Aura Quiz view */}
+          {currentView === "aura" && (
+            <AuraQuiz key="aura" onBack={() => setCurrentView("home")} />
+          )}
         </AnimatePresence>
       </div>
     </div>
   );
 }
-
-

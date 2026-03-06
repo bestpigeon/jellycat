@@ -255,7 +255,7 @@ function ResultScreen({
             src={result.imageUrl}
             alt={result.name}
             referrerPolicy="no-referrer"
-            className="w-full h-full object-contain drop-shadow-lg"
+            className="w-full h-full object-cover drop-shadow-lg"
           />
           <div className="absolute inset-0 bg-black/5 mix-blend-overlay" />
         </motion.div>

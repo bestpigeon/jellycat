@@ -5,7 +5,7 @@ import { questions, results, JellycatResult } from "../data/jellycatData";
 
 type AppState = "welcome" | "quiz" | "result";
 
-export default function App() {
+export default function JellycatQuiz() {
   const [appState, setAppState] = useState<AppState>("welcome");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [scores, setScores] = useState<Record<string, number>>({});

@@ -20,7 +20,7 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
       description: "Are you a poetic folklore soul or a chaotic reputation baddie?",
       icon: <Music className="w-6 h-6 text-purple-600" />,
       color: "bg-purple-100",
-      image: "https://images.unsplash.com/photo-1493225457224-ca2e8316c87a?q=80&w=600&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1698711864764-c9150adc9f36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dGF5bG9yJTIwc3dpZnR8ZW58MHx8MHx8fDA%3D",
       comingSoon: false,
     }
   ];

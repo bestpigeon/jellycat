@@ -5,10 +5,12 @@ import { JellycatQuiz } from "./quizzes/JellycatQuiz";
 import { CoffeeQuiz } from "./quizzes/CoffeeQuiz";
 import { AuraQuiz } from "./quizzes/AuraQuiz";
 import { TaylorQuiz } from "./quizzes/TaylorQuiz";
+import { WordleGame } from "./quizzes/WordleGame";
+
 
 
 // Added "aura" to the allowed view states
-type MainViewState = "home" | "jellycat" | "coffee" | "aura" | "taylor";
+type MainViewState = "home" | "jellycat" | "coffee" | "aura" | "taylor" | "wordle";
 
 export default function App() {
   const [currentView, setCurrentView] = useState<MainViewState>("home");
@@ -31,6 +33,9 @@ export default function App() {
           )}
           {currentView === "taylor" && (
             <TaylorQuiz key="taylor" onBack={() => setCurrentView("home")} />
+          )}
+          {currentView === "wordle" && (
+            <WordleGame key="wordle" onBack={() => handleViewChange("home")} />
           )}
         </AnimatePresence>
       </div>

@@ -22,6 +22,15 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
       color: "bg-purple-100",
       image: "https://images.unsplash.com/photo-1698711864764-c9150adc9f36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dGF5bG9yJTIwc3dpZnR8ZW58MHx8MHx8fDA%3D",
       comingSoon: false,
+    },
+    {
+      id: "wordle",
+      title: "Cozy Wordle",
+      description: "Guess the 5-letter word in 6 tries. A cozy take on the classic daily game.",
+      icon: <Sparkles className="w-6 h-6 text-emerald-500" />,
+      color: "bg-emerald-100",
+      image: "https://images.unsplash.com/photo-1643208589889-0735ad7218f0?q=80&w=600&auto=format&fit=crop",
+      comingSoon: false,
     }
   ];
 

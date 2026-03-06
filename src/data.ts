@@ -99,14 +99,14 @@ export const results: Record<string, JellycatResult> = {
     buttonColor: "bg-rose-600",
     link: "https://us.jellycat.com/animals/bunnies",
   },
-  woodland: {
-    id: "woodland",
-    name: "Woodland Animals",
+  bear: {
+    id: "bear",
+    name: "Bear",
     description: "Sleepy, cozy, and deeply in tune with nature. You take life at your own pace, love comfort food, and give the absolute best, most reassuring hugs.",
     imageUrl: "https://m.media-amazon.com/images/I/71cvp+ZIBCL._AC_SL1500_.jpg",
     color: "bg-orange-100 text-orange-800",
     buttonColor: "bg-orange-600",
-    link: "https://us.jellycat.com/animals/woodland-animals",
+    link: "https://us.jellycat.com/animals/bears",
   },
 };
 
@@ -126,11 +126,11 @@ export const questions: Question[] = [
     id: 1,
     question: "What does your ideal weekend look like?",
     options: [
-      { text: "Curled up at home with a good book and tea", pointsTo: ["cats", "bunnies", "woodland"] },
+      { text: "Curled up at home with a good book and tea", pointsTo: ["cats", "bunnies", "bear"] },
       { text: "Exploring a new hiking trail or park", pointsTo: ["jungle", "dinosaurs", "birds"] },
       { text: "Hanging out at a cozy cafe with friends", pointsTo: ["dogs", "farmyard"] },
       { text: "Going to the beach or an aquarium", pointsTo: ["ocean", "amphibians"] },
-      { text: "Tending to my garden or houseplants", pointsTo: ["bugs", "woodland"] },
+      { text: "Tending to my garden or houseplants", pointsTo: ["bugs", "bear"] },
     ],
   },
   {
@@ -141,14 +141,14 @@ export const questions: Question[] = [
       { text: "I retreat to my room and need alone time", pointsTo: ["cats", "amphibians", "bugs"] },
       { text: "I try to find a practical solution immediately", pointsTo: ["farmyard", "dinosaurs"] },
       { text: "I go for a walk or exercise to clear my head", pointsTo: ["jungle", "birds"] },
-      { text: "I take a long bath or shower to relax", pointsTo: ["ocean", "woodland"] },
+      { text: "I take a long bath or shower to relax", pointsTo: ["ocean", "bear"] },
     ],
   },
   {
     id: 3,
     question: "Pick a color palette that speaks to you:",
     options: [
-      { text: "Earthy greens and browns", pointsTo: ["woodland", "amphibians", "dinosaurs"] },
+      { text: "Earthy greens and browns", pointsTo: ["bear", "amphibians", "dinosaurs"] },
       { text: "Deep ocean blues and teals", pointsTo: ["ocean", "birds"] },
       { text: "Warm sunny yellows and oranges", pointsTo: ["jungle", "farmyard", "dogs"] },
       { text: "Soft pastel pinks and purples", pointsTo: ["bugs", "bunnies", "cats"] },
@@ -160,7 +160,7 @@ export const questions: Question[] = [
     options: [
       { text: "The Mom/Dad - always making sure everyone is okay", pointsTo: ["farmyard", "dogs", "bunnies"] },
       { text: "The Adventurer - always suggesting crazy new plans", pointsTo: ["jungle", "dinosaurs", "birds"] },
-      { text: "The Listener - giving the best advice", pointsTo: ["ocean", "woodland"] },
+      { text: "The Listener - giving the best advice", pointsTo: ["ocean", "bear"] },
       { text: "The Observer - quiet but notices everything", pointsTo: ["cats", "amphibians", "bugs"] },
     ],
   },
@@ -168,7 +168,7 @@ export const questions: Question[] = [
     id: 5,
     question: "What's your favorite time of day?",
     options: [
-      { text: "Early morning - I love the quiet before the world wakes up", pointsTo: ["birds", "farmyard", "woodland"] },
+      { text: "Early morning - I love the quiet before the world wakes up", pointsTo: ["birds", "farmyard", "bear"] },
       { text: "The middle of the day - I'm most active when it's bright", pointsTo: ["dogs", "jungle"] },
       { text: "Golden hour - everything looks magical and warm", pointsTo: ["cats", "bunnies", "dinosaurs"] },
       { text: "Late at night - I'm a total night owl", pointsTo: ["ocean", "amphibians", "bugs"] },

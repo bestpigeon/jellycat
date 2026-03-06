@@ -8,7 +8,7 @@ import { TaylorQuiz } from "./quizzes/TaylorQuiz";
 
 
 // Added "aura" to the allowed view states
-type MainViewState = "home" | "jellycat" | "coffee" | "aura";
+type MainViewState = "home" | "jellycat" | "coffee" | "aura" | "taylor";
 
 export default function App() {
   const [currentView, setCurrentView] = useState<MainViewState>("home");

@@ -1,6 +1,6 @@
 import React from "react";
-import { motion } from "motion/react";
-import { Heart, Sparkles, ArrowRight, Lock, Flame } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react"; // Updated import to include AnimatePresence if needed elsewhere, otherwise just motion
+import { Heart, Sparkles, ArrowRight, Lock, Flame, Music } from "lucide-react"; // Added Music icon
 
 export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => void }) {
   // 1. Split your data into distinct arrays for each shelf
@@ -15,12 +15,12 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
       comingSoon: false,
     },
     {
-      id: "weekend-vibe",
-      title: "Design Your Perfect Weekend",
-      description: "Plan a weekend and we'll guess your introversion level.",
-      icon: <Sparkles className="w-6 h-6 text-indigo-500" />,
-      color: "bg-indigo-100",
-      image: "https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=600&auto=format&fit=crop",
+      id: "taylor",
+      title: "Which Taylor Swift Era Are You?",
+      description: "Are you a poetic folklore soul or a chaotic reputation baddie?",
+      icon: <Music className="w-6 h-6 text-purple-600" />,
+      color: "bg-purple-100",
+      image: "https://images.unsplash.com/photo-1493225457224-ca2e8316c87a?q=80&w=600&auto=format&fit=crop",
       comingSoon: false,
     }
   ];

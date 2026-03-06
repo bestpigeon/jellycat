@@ -24,9 +24,11 @@ export default function App() {
           {currentView === "coffee" && (
             <CoffeeQuiz key="coffee" onBack={() => setCurrentView("home")} />
           )}
-          {/* Added the new Aura Quiz view */}
           {currentView === "aura" && (
             <AuraQuiz key="aura" onBack={() => setCurrentView("home")} />
+          )}
+          {currentView === "taylor" && (
+            <TaylorQuiz key="taylor" onBack={() => setCurrentView("home")} />
           )}
         </AnimatePresence>
       </div>

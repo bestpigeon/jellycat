@@ -6,16 +6,30 @@ import { questions, results, CoffeeResult } from "../data/coffeeData";
 type QuizState = "welcome" | "quiz" | "result";
 
 export function CoffeeQuiz({ onBack }: { onBack: () => void }) {
-  const [appState, setAppState] = useState<QuizState>("welcome");
+  const [appState, setAppState] = useState<QuizState>(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("result") && results[params.get("result") as string]) {
+      return "result";
+    }
+    return "welcome";
+  });
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [scores, setScores] = useState<Record<string, number>>({});
-  const [finalResult, setFinalResult] = useState<CoffeeResult | null>(null);
+  const [finalResult, setFinalResult] = useState<CoffeeResult | null>(() => {
+    const params = new URLSearchParams(window.location.search);
+    const resultId = params.get("result");
+    if (resultId && results[resultId]) {
+      return results[resultId];
+    }
+    return null;
+  });
 
   const startQuiz = () => {
     setAppState("quiz");
     setCurrentQuestionIndex(0);
     setScores({});
     setFinalResult(null);
+    window.history.replaceState({}, '', `?quiz=coffee`);
   };
 
   const handleOptionSelect = (pointsTo: string[]) => {
@@ -45,6 +59,7 @@ export function CoffeeQuiz({ onBack }: { onBack: () => void }) {
 
     setFinalResult(results[topId]);
     setAppState("result");
+    window.history.replaceState({}, '', `?quiz=coffee&result=${topId}`);
   };
 
   return (
@@ -215,19 +230,14 @@ function ResultScreen({
   key?: React.Key;
 }) {
   const handleShare = async () => {
+    const shareUrl = `${window.location.origin}${window.location.pathname}?quiz=coffee`;
+    const shareText = `I got ${result.name}! ☕️ What's your coffee personality? Take the quiz: ${shareUrl}`;
+    
     try {
-      if (navigator.share) {
-        await navigator.share({
-          title: 'My Coffee Personality',
-          text: `I took the quiz and my coffee personality is ${result.name}! Find out yours!`,
-          url: window.location.href,
-        });
-      } else {
-        await navigator.clipboard.writeText(window.location.href);
-        alert('Link copied to clipboard!');
-      }
+      await navigator.clipboard.writeText(shareText);
+      alert('Results copied to clipboard!');
     } catch (error) {
-      console.error('Error sharing:', error);
+      console.error('Error copying to clipboard:', error);
     }
   };
 

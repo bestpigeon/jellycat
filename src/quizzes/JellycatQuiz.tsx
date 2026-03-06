@@ -1,21 +1,35 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Heart, Sparkles, RefreshCcw, ArrowRight } from "lucide-react";
+import { Heart, Sparkles, RefreshCcw, ArrowRight, Home, Share } from "lucide-react";
 import { questions, results, JellycatResult } from "../data/jellycatData";
 
-type AppState = "welcome" | "quiz" | "result";
+type QuizState = "welcome" | "quiz" | "result";
 
 export function JellycatQuiz({ onBack }: { onBack: () => void }) {
-  const [appState, setAppState] = useState<AppState>("welcome");
+  const [appState, setAppState] = useState<QuizState>(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("result") && results[params.get("result") as string]) {
+      return "result";
+    }
+    return "welcome";
+  });
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [scores, setScores] = useState<Record<string, number>>({});
-  const [finalResult, setFinalResult] = useState<JellycatResult | null>(null);
+  const [finalResult, setFinalResult] = useState<JellycatResult | null>(() => {
+    const params = new URLSearchParams(window.location.search);
+    const resultId = params.get("result");
+    if (resultId && results[resultId]) {
+      return results[resultId];
+    }
+    return null;
+  });
 
   const startQuiz = () => {
     setAppState("quiz");
     setCurrentQuestionIndex(0);
     setScores({});
     setFinalResult(null);
+    window.history.replaceState({}, '', `?quiz=jellycat`);
   };
 
   const handleOptionSelect = (pointsTo: string[]) => {
@@ -47,40 +61,41 @@ export function JellycatQuiz({ onBack }: { onBack: () => void }) {
 
     setFinalResult(results[topJellycatId]);
     setAppState("result");
+    window.history.replaceState({}, '', `?quiz=jellycat&result=${topJellycatId}`);
   };
 
   return (
-      <div className="w-full max-w-2xl mx-auto relative pt-12 sm:pt-0">
-        <button 
-          onClick={onBack}
-          className="absolute top-0 sm:-top-16 left-0 flex items-center gap-2 text-slate-500 hover:text-slate-800 transition-colors font-medium z-50"
-        >
-          <Home className="w-4 h-4" />
-          Back to Quizzes
-        </button>
-        
-        <AnimatePresence mode="wait">
-          {appState === "welcome" && (
-            <WelcomeScreen key="welcome" onStart={startQuiz} />
-          )}
-          {appState === "quiz" && (
-            <QuizScreen
-              key="quiz"
-              questionIndex={currentQuestionIndex}
-              onSelect={handleOptionSelect}
-            />
-          )}
-          {appState === "result" && finalResult && (
-            <ResultScreen
-              key="result"
-              result={finalResult}
-              onRestart={startQuiz}
-            />
-          )}
-        </AnimatePresence>
-      </div>
-    );
-  }
+    <div className="w-full max-w-2xl mx-auto relative pt-12 sm:pt-0">
+      <button 
+        onClick={onBack}
+        className="absolute top-0 sm:-top-16 left-0 flex items-center gap-2 text-slate-500 hover:text-slate-800 transition-colors font-medium z-50"
+      >
+        <Home className="w-4 h-4" />
+        Back to Quizzes
+      </button>
+      
+      <AnimatePresence mode="wait">
+        {appState === "welcome" && (
+          <WelcomeScreen key="welcome" onStart={startQuiz} />
+        )}
+        {appState === "quiz" && (
+          <QuizScreen
+            key="quiz"
+            questionIndex={currentQuestionIndex}
+            onSelect={handleOptionSelect}
+          />
+        )}
+        {appState === "result" && finalResult && (
+          <ResultScreen
+            key="result"
+            result={finalResult}
+            onRestart={startQuiz}
+          />
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 function WelcomeScreen({ onStart }: { onStart: () => void; key?: React.Key }) {
   return (
@@ -217,6 +232,18 @@ function ResultScreen({
   onRestart: () => void;
   key?: React.Key;
 }) {
+  const handleShare = async () => {
+    const shareUrl = `${window.location.origin}${window.location.pathname}?quiz=jellycat`;
+    const shareText = `I got ${result.name}! ✨ Which Jellycat are you? Take the quiz: ${shareUrl}`;
+    
+    try {
+      await navigator.clipboard.writeText(shareText);
+      alert('Results copied to clipboard!');
+    } catch (error) {
+      console.error('Error copying to clipboard:', error);
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
@@ -281,17 +308,25 @@ function ResultScreen({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7 }}
-          className="mb-10"
+          className="mb-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
             href={result.link}
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 ${result.buttonColor}`}
+            className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 w-full sm:w-auto ${result.buttonColor}`}
           >
             Snuggle Him Home
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
           </a>
+          
+          <button
+            onClick={handleShare}
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 w-full sm:w-auto"
+          >
+            <Share className="w-5 h-5" />
+            Share Results
+          </button>
         </motion.div>
 
         <motion.button

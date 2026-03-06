@@ -98,7 +98,7 @@ function WelcomeScreen({ onStart }: { onStart: () => void; key?: React.Key }) {
 
         <p className="text-lg text-slate-500 mb-10 max-w-md mx-auto leading-relaxed">
           Are you a grumpy frog, a sleepy bear, or a bubbly pastry? Take this
-          10-question cozy quiz to find your plushie soulmate.
+          5-question quiz to find your plushie soulmate.
         </p>
 
         <button

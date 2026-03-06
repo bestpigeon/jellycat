@@ -50,8 +50,15 @@ export function JellycatQuiz({ onBack }: { onBack: () => void }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-slate-800 font-sans selection:bg-rose-200 flex items-center justify-center p-4 sm:p-8">
-      <div className="w-full max-w-2xl mx-auto">
+      <div className="w-full max-w-2xl mx-auto relative pt-12 sm:pt-0">
+        <button 
+          onClick={onBack}
+          className="absolute top-0 sm:-top-16 left-0 flex items-center gap-2 text-slate-500 hover:text-slate-800 transition-colors font-medium z-50"
+        >
+          <Home className="w-4 h-4" />
+          Back to Quizzes
+        </button>
+        
         <AnimatePresence mode="wait">
           {appState === "welcome" && (
             <WelcomeScreen key="welcome" onStart={startQuiz} />
@@ -72,9 +79,8 @@ export function JellycatQuiz({ onBack }: { onBack: () => void }) {
           )}
         </AnimatePresence>
       </div>
-    </div>
-  );
-}
+    );
+  }
 
 function WelcomeScreen({ onStart }: { onStart: () => void; key?: React.Key }) {
   return (

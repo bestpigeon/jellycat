@@ -12,7 +12,7 @@ export const results: Record<string, AuraResult> = {
     id: "red",
     name: "Radiant Red",
     description: "You are a powerhouse of energy! Passionate, action-oriented, and fiercely independent. You tackle life head-on and aren't afraid to take risks. People are drawn to your natural confidence and magnetic presence.",
-    imageUrl: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop", // Abstract red liquid/gradient
+    imageUrl: "https://images.unsplash.com/photo-1595757816291-ab4c1cba0fc2?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Abstract red liquid/gradient
     color: "bg-red-100 text-red-800",
     buttonColor: "bg-red-600",
   },
@@ -20,7 +20,7 @@ export const results: Record<string, AuraResult> = {
     id: "blue",
     name: "Tranquil Blue",
     description: "You are the calm in the storm. Empathetic, communicative, and deeply caring. You value honesty and deep connections over superficial small talk. Friends know they can always come to you for excellent advice and a listening ear.",
-    imageUrl: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=600&auto=format&fit=crop", // Abstract blue waves
+    imageUrl: "https://plus.unsplash.com/premium_photo-1666733798974-d9d4b106340e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Abstract blue waves
     color: "bg-blue-100 text-blue-800",
     buttonColor: "bg-blue-600",
   },
@@ -28,7 +28,7 @@ export const results: Record<string, AuraResult> = {
     id: "yellow",
     name: "Sunny Yellow",
     description: "You are pure joy! Optimistic, playful, and wonderfully creative. You light up every room you walk into and have a knack for finding the silver lining in any situation. Your enthusiasm is highly contagious.",
-    imageUrl: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=600&auto=format&fit=crop", // Abstract yellow/orange gradient
+    imageUrl: "https://images.unsplash.com/photo-1571456653714-a8db063a3e91?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8eWVsbG93fGVufDB8fDB8fHww", // Abstract yellow/orange gradient
     color: "bg-yellow-100 text-yellow-800",
     buttonColor: "bg-yellow-500",
   },
@@ -36,7 +36,7 @@ export const results: Record<string, AuraResult> = {
     id: "green",
     name: "Grounded Green",
     description: "You are balanced, nurturing, and deeply connected to the world around you. You prefer steady growth and harmonious environments over chaos. You likely have a green thumb and love creating safe, welcoming spaces for others.",
-    imageUrl: "https://images.unsplash.com/photo-1550684848-76ce504ce97e?q=80&w=600&auto=format&fit=crop", // Abstract green texture
+    imageUrl: "https://images.unsplash.com/photo-1553307236-8783cc0a3b9e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3JlZW58ZW58MHx8MHx8fDA%3D", // Abstract green texture
     color: "bg-emerald-100 text-emerald-800",
     buttonColor: "bg-emerald-600",
   },
@@ -44,7 +44,7 @@ export const results: Record<string, AuraResult> = {
     id: "purple",
     name: "Mystic Purple",
     description: "You are highly intuitive, imaginative, and a little bit mysterious. You have a rich inner life and are drawn to the deeper, more philosophical aspects of the world. You march to the beat of your own drum.",
-    imageUrl: "https://images.unsplash.com/photo-1550684848-8e6bf77af71a?q=80&w=600&auto=format&fit=crop", // Abstract purple fluid
+    imageUrl: "https://images.unsplash.com/photo-1621246159024-e53b1d25fc1d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHB1cnBsZXxlbnwwfHwwfHx8MA%3D%3D", // Abstract purple fluid
     color: "bg-purple-100 text-purple-800",
     buttonColor: "bg-purple-600",
   },

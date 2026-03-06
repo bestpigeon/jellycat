@@ -286,6 +286,14 @@ function ResultScreen({
             Snuggle Him Home
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
           </a>
+
+          <button 
+            onClick={handleShare}
+            className="flex items-center justify-center gap-2 px-8 py-3 w-full max-w-xs bg-slate-50 hover:bg-slate-100 text-slate-600 font-semibold rounded-full transition-all border border-slate-200"
+          >
+            <Sparkles className="w-4 h-4 text-amber-500" />
+            Share to Story
+          </button>
         </motion.div>
 
         <motion.button

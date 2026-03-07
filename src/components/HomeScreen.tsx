@@ -10,29 +10,38 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
   const dailyGames = [
     {
       id: "wordle",
-      title: "Cozy Wordle",
+      title: "Wordle",
       description: "Guess the 5-letter word in 6 tries. A cozy take on the daily classic.",
       icon: <Sparkles className="w-6 h-6 text-emerald-500" />,
       color: "bg-emerald-100",
-      image: "https://images.unsplash.com/photo-1643208589889-0735ad7218f0?q=80&w=600&auto=format&fit=crop",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQdvkeaIuPwd_QHBUj4hypsxq-pIFvl7bZ7w&s",
       comingSoon: false,
     },
     {
-      id: "connections",
-      title: "Connections",
-      description: "Group words that share a common thread.",
-      icon: <Gamepad2 className="w-6 h-6 text-indigo-500" />,
-      color: "bg-indigo-100",
-      image: "https://images.unsplash.com/photo-1606167668584-78701c57f13d?q=80&w=600&auto=format&fit=crop",
+      id: "sudoku",
+      title: "Sudoku",
+      description: "A relaxing, beautifully designed classic number puzzle to clear your mind.",
+      icon: <Gamepad2 className="w-6 h-6 text-blue-500" />,
+      color: "bg-blue-100",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0kjJu2EXfGCazpa5FjAdNWAD60cLVNUWPMA&s",
       comingSoon: false,
     },
     {
-      id: "pixelart",
-      title: "Pixel Art Puzzle",
-      description: "Reveal the hidden picture using logic numbers.",
-      icon: <Palette className="w-6 h-6 text-pink-500" />,
-      color: "bg-pink-100",
-      image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=600&auto=format&fit=crop",
+      id: "memory",
+      title: "Memory Flip",
+      description: "Test your memory by matching these cute, comforting items.",
+      icon: <Heart className="w-6 h-6 text-rose-500" />,
+      color: "bg-rose-100",
+      image: "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?q=80&w=600&auto=format&fit=crop",
+      comingSoon: false,
+    },
+    {
+      id: "mushroom",
+      title: "Mushroom Match",
+      description: "A relaxing match-3 game with colorful woodland mushrooms.",
+      icon: <TreePine className="w-6 h-6 text-orange-500" />,
+      color: "bg-orange-100",
+      image: "https://em-content.zobj.net/social/emoji/mushroom.png",
       comingSoon: false,
     }
   ];
@@ -48,21 +57,12 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
       comingSoon: false,
     },
     {
-      id: "whitelotus",
-      title: "The White Lotus Persona",
-      description: "Are you an iconic Tanya or a sharp-tongued Harper?",
-      icon: <Tv className="w-6 h-6 text-fuchsia-600" />,
-      color: "bg-fuchsia-100",
-      image: "https://images.unsplash.com/photo-1580130006950-8b1b24e4d5fb?q=80&w=600&auto=format&fit=crop",
-      comingSoon: false,
-    },
-    {
       id: "ghibli",
       title: "Which Ghibli World Is Yours?",
       description: "Discover which magical Ghibli world you belong in.",
       icon: <Stars className="w-6 h-6 text-emerald-600" />,
       color: "bg-emerald-100",
-      image: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?q=80&w=600&auto=format&fit=crop",
+      image: "https://wallup.net/wp-content/uploads/2016/07/23/75333-Totoro-Studio_Ghibli-748x468.png",
       comingSoon: false,
     },
     {
@@ -250,9 +250,9 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
             <span className="uppercase tracking-widest">Ready to play?</span>
           </motion.div>
           <motion.h1 initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, type: "spring", damping: 12 }} className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-2 font-serif">
-            Cozy <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500">Games</span>
+            Take a <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500">Break</span>
           </motion.h1>
-          <p className="text-sm text-slate-500 mb-6 font-medium">Take a break and explore our collection of wholesome quizzes and games.</p>
+          <p className="text-sm text-slate-500 mb-6 font-medium">Unwind and explore our collection of wholesome quizzes and games.</p>
           <div className="max-w-md mx-auto relative z-50" ref={dropdownRef}>
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">

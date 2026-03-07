@@ -72,5 +72,25 @@ export const questions = [
       { text: "Proving my worth and building a legacy", pointsTo: ["tony"] },
       { text: "Honor, glory, and protecting my realm", pointsTo: ["thor"] },
     ],
+  },
+  {
+    id: 4,
+    question: "What's your hidden talent?",
+    options: [
+      { text: "Strategic thinking and long-term planning", pointsTo: ["cap"] },
+      { text: "Engineering or fixing complicated things", pointsTo: ["tony"] },
+      { text: "Reading people and situations instantly", pointsTo: ["widow"] },
+      { text: "Inspiring others with sheer charisma", pointsTo: ["thor"] },
+    ],
+  },
+  {
+    id: 5,
+    question: "What do you value most in a team?",
+    options: [
+      { text: "Absolute loyalty and mutual trust", pointsTo: ["cap"] },
+      { text: "Quiet competence and getting the job done", pointsTo: ["widow"] },
+      { text: "Innovation and pushing the boundaries", pointsTo: ["tony"] },
+      { text: "Camaraderie and shared glory", pointsTo: ["thor"] },
+    ],
   }
 ];

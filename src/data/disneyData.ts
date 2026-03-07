@@ -71,5 +71,25 @@ export const questions = [
       { text: "Opening my own successful business", pointsTo: ["tiana"] },
       { text: "Proving everyone who doubted me wrong", pointsTo: ["mulan"] },
     ],
+  },
+  {
+    id: 4,
+    question: "How do you feel about rules?",
+    options: [
+      { text: "I always follow them, they keep us safe", pointsTo: ["cinderella"] },
+      { text: "I'll break them if it's for the greater good", pointsTo: ["mulan"] },
+      { text: "I hate them, I want to be completely free", pointsTo: ["ariel"] },
+      { text: "I respect them, but I'm focused on my own goals", pointsTo: ["tiana"] },
+    ],
+  },
+  {
+    id: 5,
+    question: "What's your ideal setting?",
+    options: [
+      { text: "A cozy, bustling restaurant full of life", pointsTo: ["tiana"] },
+      { text: "A grand, sparkling ballroom with music", pointsTo: ["cinderella"] },
+      { text: "A vibrant, colorful underwater world", pointsTo: ["ariel"] },
+      { text: "A peaceful countryside or open training ground", pointsTo: ["mulan"] },
+    ],
   }
 ];

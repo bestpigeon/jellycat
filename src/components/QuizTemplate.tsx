@@ -135,7 +135,7 @@ export function QuizTemplate<T extends BaseResult>({
   };
 
   const handleShare = async (result: T) => {
-    const shareUrl = `${window.location.origin}${window.location.pathname}?quiz=${quizId}`;
+    const shareUrl = `${window.location.origin}${window.location.pathname}?quiz=${quizId}&result=${result.id}`;
     const shareText = `I got ${result.name}! ✨ Take the quiz: ${shareUrl}`;
     
     try {
@@ -147,15 +147,7 @@ export function QuizTemplate<T extends BaseResult>({
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto relative pt-12 sm:pt-0">
-      <button 
-        onClick={onBack}
-        className="absolute top-0 sm:-top-16 left-0 flex items-center gap-2 text-slate-500 hover:text-slate-800 transition-colors font-medium z-50"
-      >
-        <Home className="w-4 h-4" />
-        Back to Games
-      </button>
-      
+    <div className="w-full max-w-2xl mx-auto relative pt-8 sm:pt-0">
       <AnimatePresence mode="wait">
         {appState === "welcome" && (
           <motion.div

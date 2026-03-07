@@ -71,5 +71,23 @@ export const questions = [
       { text: "I'm driving and silently judging everyone's music taste", pointsTo: ["chocolate"] },
       { text: "I brought all the snacks and keep everyone entertained", pointsTo: ["chips"] },
     ],
+  },
+  {
+    id: 4,
+    question: "How do you feel about sharing?",
+    options: [
+      { text: "I'll share, but I'm keeping the best pieces", pointsTo: ["gummy"] },
+      { text: "What's mine is yours, let's pass the bowl around", pointsTo: ["chips", "popcorn"] },
+      { text: "Absolutely not. Get your own.", pointsTo: ["chocolate"] },
+    ],
+  },
+  {
+    id: 5,
+    question: "Choose a beverage to go with it:",
+    options: [
+      { text: "An ice-cold, fizzy soda", pointsTo: ["popcorn", "chips"] },
+      { text: "A rich, dark cup of coffee or red wine", pointsTo: ["chocolate"] },
+      { text: "A fruity, colorful juice or tea", pointsTo: ["gummy"] },
+    ],
   }
 ];

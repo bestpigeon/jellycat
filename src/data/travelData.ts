@@ -68,7 +68,27 @@ export const questions = [
     options: [
       { text: "Every minute is scheduled on a spreadsheet", pointsTo: ["japan", "iceland"] },
       { text: "I just show up and see where the day takes me", pointsTo: ["italy"] },
-      { text: "I plan to do absolutely nothing.", pointsTo: ["cabin"] },
+      { text: "I plan to do absolutely nothing", pointsTo: ["cabin"] },
+    ],
+  },
+  {
+    id: 4,
+    question: "Pick a mode of transportation:",
+    options: [
+      { text: "A scenic, high-speed train", pointsTo: ["japan"] },
+      { text: "A rented convertible by the coast", pointsTo: ["italy"] },
+      { text: "A rugged 4x4 off-roading vehicle", pointsTo: ["iceland"] },
+      { text: "Walking from the sofa to the kitchen", pointsTo: ["cabin"] },
+    ],
+  },
+  {
+    id: 5,
+    question: "What's your travel dining style?",
+    options: [
+      { text: "Fine dining and local delicacies", pointsTo: ["italy"] },
+      { text: "Traditional street food and tea ceremonies", pointsTo: ["japan"] },
+      { text: "Hearty, practical meals to fuel the day", pointsTo: ["iceland"] },
+      { text: "Comfort food cooked by a cozy fire", pointsTo: ["cabin"] },
     ],
   }
 ];

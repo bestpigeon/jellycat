@@ -70,5 +70,25 @@ export const questions = [
       { text: "A bright, sunny loft with big windows", pointsTo: ["monstera", "succulent"] },
       { text: "A cozy, dimly lit bedroom with lots of blankets", pointsTo: ["pothos", "calathea"] },
     ],
+  },
+  {
+    id: 4,
+    question: "How do you handle stress?",
+    options: [
+      { text: "I need a long bath and a strict self-care routine", pointsTo: ["calathea"] },
+      { text: "I just keep pushing through, it's fine", pointsTo: ["pothos"] },
+      { text: "I distance myself and withdraw", pointsTo: ["succulent"] },
+      { text: "I vent and let it all out loudly", pointsTo: ["monstera"] },
+    ],
+  },
+  {
+    id: 5,
+    question: "What's your personal style?",
+    options: [
+      { text: "Bold, trendy, and eye-catching", pointsTo: ["monstera"] },
+      { text: "Minimalist, clean, and structured", pointsTo: ["succulent"] },
+      { text: "Relaxed, comfortable, and easygoing", pointsTo: ["pothos"] },
+      { text: "Highly curated and perfectly put-together", pointsTo: ["calathea"] },
+    ],
   }
 ];

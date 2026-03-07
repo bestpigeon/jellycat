@@ -1,28 +1,35 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Music, CloudRain, Piano, Headphones, Volume2, VolumeX, X } from 'lucide-react';
+import { Music, CloudRain, Piano, Coffee, Volume2, VolumeX, X } from 'lucide-react';
 
 const TRACKS = [
   {
     id: 'rain',
     name: 'Cozy Rain',
     icon: <CloudRain className="w-4 h-4" />,
-    src: 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_1167139175.mp3?filename=soft-rain-ambient-111154.mp3',
-    volume: 1.0,
+    src: ['https://actions.google.com/sounds/v1/weather/rain_on_roof.ogg'],
+    volume: 0.5,
   },
   {
     id: 'piano',
     name: 'Light Piano',
     icon: <Piano className="w-4 h-4" />,
-    src: 'https://cdn.pixabay.com/download/audio/2022/10/25/audio_9a953fc421.mp3?filename=calm-piano-music-123490.mp3',
-    volume: 1.0,
+    src: [
+      'https://upload.wikimedia.org/wikipedia/commons/b/be/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg',
+      'https://upload.wikimedia.org/wikipedia/commons/0/0f/Claude_Debussy_-_Premi%C3%A8re_Arabesque_-_Patrizia_Prati.ogg',
+      'https://upload.wikimedia.org/wikipedia/commons/8/89/Claude_Debussy_-_Deuxi%C3%A8me_Arabesque_-_Patrizia_Prati.ogg',
+      'https://upload.wikimedia.org/wikipedia/commons/d/d5/Chopin-Berceuse.ogg',
+      'https://upload.wikimedia.org/wikipedia/commons/e/eb/Beethoven_Moonlight_1st_movement.ogg',
+      'https://upload.wikimedia.org/wikipedia/commons/7/7c/Barcarolle_-_Chopin.ogg'
+    ],
+    volume: 0.4,
   },
   {
-    id: 'lofi',
-    name: 'Lo-fi Chill',
-    icon: <Headphones className="w-4 h-4" />,
-    src: 'https://cdn.pixabay.com/download/audio/2022/01/26/audio_8ed59cf1e2.mp3?filename=chill-lofi-song-8444.mp3',
-    volume: 1.0,
+    id: 'cafe',
+    name: 'Coffee Shop',
+    icon: <Coffee className="w-4 h-4" />,
+    src: ['https://actions.google.com/sounds/v1/ambiences/coffee_shop.ogg'],
+    volume: 0.3,
   }
 ];
 
@@ -30,6 +37,7 @@ export function MusicPlayer() {
   const [isOpen, setIsOpen] = useState(false);
   const [currentTrackId, setCurrentTrackId] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [currentSubTrackIndex, setCurrentSubTrackIndex] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const currentTrack = TRACKS.find(t => t.id === currentTrackId);
@@ -47,11 +55,23 @@ export function MusicPlayer() {
         audioRef.current.pause();
       }
     }
-  }, [isPlaying, currentTrackId, currentTrack]);
+  }, [isPlaying, currentTrackId, currentTrack, currentSubTrackIndex]);
+
+  const handleTrackEnded = () => {
+    if (currentTrack && currentTrack.src.length > 1) {
+      // Move to next sub-track, loop back to 0
+      setCurrentSubTrackIndex((prev) => (prev + 1) % currentTrack.src.length);
+    } else if (audioRef.current) {
+      // Single track: just replay it
+      audioRef.current.currentTime = 0;
+      audioRef.current.play().catch((e) => console.log("Audio replay prevented:", e));
+    }
+  };
 
   const togglePlay = () => {
     if (!currentTrackId && !isPlaying) {
       setCurrentTrackId(TRACKS[0].id);
+      setCurrentSubTrackIndex(0);
       setIsPlaying(true);
     } else {
       setIsPlaying(!isPlaying);
@@ -64,6 +84,7 @@ export function MusicPlayer() {
       setIsPlaying(!isPlaying);
     } else {
       setCurrentTrackId(id);
+      setCurrentSubTrackIndex(0); // Reset sub-track index when changing categories
       setIsPlaying(true);
     }
   };
@@ -71,6 +92,7 @@ export function MusicPlayer() {
   const turnOff = () => {
     setIsPlaying(false);
     setCurrentTrackId(null);
+    setCurrentSubTrackIndex(0);
   };
 
   return (
@@ -150,11 +172,13 @@ export function MusicPlayer() {
       </button>
 
       {/* Hidden Audio Element */}
-      {currentTrackId && (
+      {currentTrackId && currentTrack && (
         <audio
           ref={audioRef}
-          src={currentTrack?.src}
-          loop
+          src={currentTrack.src[currentSubTrackIndex]}
+          onEnded={handleTrackEnded}
+          loop={currentTrack.src.length === 1}
+          autoPlay={isPlaying}
           preload="auto"
         />
       )}

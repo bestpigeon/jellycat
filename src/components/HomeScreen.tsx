@@ -16,8 +16,8 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
       color: "bg-orange-100",
       image: "https://em-content.zobj.net/social/emoji/mushroom.png",
       comingSoon: false,
-    }
-    ];
+    },
+    {
       id: "blackpink",
       title: "Which Blackpink Member Are You?",
       description: "Find your Blackpink twin among the four icons.",

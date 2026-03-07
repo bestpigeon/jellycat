@@ -15,6 +15,7 @@ import { TravelQuiz } from "./quizzes/TravelQuiz";
 import { SnackQuiz } from "./quizzes/SnackQuiz";
 import { ConnectionsGame } from "./quizzes/ConnectionsGame";
 import { PixelArtGame } from "./quizzes/PixelArtGame";
+import { MusicPlayer } from "./components/MusicPlayer";
 
 type MainViewState = 
   | "home" | "jellycat" | "coffee" | "aura" | "taylor" | "wordle" 
@@ -75,6 +76,7 @@ export default function App() {
           )}
         </AnimatePresence>
       </div>
+      <MusicPlayer />
     </div>
   );
 }

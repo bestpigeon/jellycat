@@ -244,13 +244,13 @@ export function TetrisGame() {
           </button>
         </div>
 
-        <div className="relative bg-slate-50 p-2 sm:p-3 rounded-xl border border-slate-100 shadow-inner">
+        <div className="relative bg-slate-50 p-1.5 sm:p-3 rounded-xl border border-slate-100 shadow-inner">
           <div className="grid grid-cols-10 gap-0.5 sm:gap-1 bg-slate-200 border border-slate-200 p-0.5">
             {renderBoard().map((row, r) => 
               row.map((cell, c) => (
                 <div 
                   key={`${r}-${c}`} 
-                  className={`w-6 h-6 sm:w-7 sm:h-7 rounded-sm ${cell.color || 'bg-white'}`}
+                  className={`w-5 h-5 sm:w-7 sm:h-7 rounded-sm ${cell.color || 'bg-white'}`}
                 />
               ))
             )}
@@ -271,24 +271,24 @@ export function TetrisGame() {
         </div>
 
         {/* Mobile Controls */}
-        <div className="mt-8 grid grid-cols-3 gap-2 w-full max-w-[240px] mx-auto sm:hidden">
-           <div className="col-span-3 flex justify-center mb-2">
-             <button onClick={rotatePiece} className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center active:bg-slate-200">
-               <RotateCw className="w-6 h-6 text-slate-700" />
+        <div className="mt-6 grid grid-cols-3 gap-2 w-full max-w-[240px] mx-auto sm:hidden">
+           <div className="col-span-3 flex justify-center mb-1">
+             <button onClick={rotatePiece} className="w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center active:bg-slate-200">
+               <RotateCw className="w-5 h-5 text-slate-700" />
              </button>
            </div>
-           <button onClick={() => movePiece(0, -1)} className="h-14 bg-slate-100 rounded-xl flex items-center justify-center active:bg-slate-200">
-             <ArrowLeft className="w-6 h-6 text-slate-700" />
+           <button onClick={() => movePiece(0, -1)} className="h-12 bg-slate-100 rounded-xl flex items-center justify-center active:bg-slate-200">
+             <ArrowLeft className="w-5 h-5 text-slate-700" />
            </button>
-           <button onClick={() => movePiece(1, 0)} className="h-14 bg-slate-100 rounded-xl flex items-center justify-center active:bg-slate-200">
-             <ArrowDown className="w-6 h-6 text-slate-700" />
+           <button onClick={() => movePiece(1, 0)} className="h-12 bg-slate-100 rounded-xl flex items-center justify-center active:bg-slate-200">
+             <ArrowDown className="w-5 h-5 text-slate-700" />
            </button>
-           <button onClick={() => movePiece(0, 1)} className="h-14 bg-slate-100 rounded-xl flex items-center justify-center active:bg-slate-200">
-             <ArrowRight className="w-6 h-6 text-slate-700" />
+           <button onClick={() => movePiece(0, 1)} className="h-12 bg-slate-100 rounded-xl flex items-center justify-center active:bg-slate-200">
+             <ArrowRight className="w-5 h-5 text-slate-700" />
            </button>
         </div>
         
-        <div className="mt-8 p-4 bg-indigo-50 rounded-xl text-sm text-slate-600 text-left border border-indigo-100 w-full max-w-sm">
+        <div className="mt-6 p-4 bg-indigo-50 rounded-xl text-xs text-slate-600 text-left border border-indigo-100 w-full max-w-sm">
           <p className="font-bold text-slate-800 mb-2">How to play:</p>
           <div className="space-y-2">
             <div className="flex items-start gap-2">

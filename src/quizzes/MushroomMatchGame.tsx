@@ -256,6 +256,11 @@ export function MushroomMatchGame() {
               )}
             </div>
           </div>
+          
+          <div className="mt-8 p-4 bg-orange-50 rounded-xl text-sm text-slate-600 text-left border border-orange-100 max-w-sm mx-auto">
+            <p className="font-bold text-slate-800 mb-1">How to play:</p>
+            <p>Click a mushroom to select it, then click an adjacent one to swap them. Match 3 or more of the same color in a row or column to pop them and score points!</p>
+          </div>
         </motion.div>
       )}
     </div>

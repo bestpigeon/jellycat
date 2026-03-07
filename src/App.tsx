@@ -15,12 +15,13 @@ import { TravelQuiz } from "./quizzes/TravelQuiz";
 import { SudokuGame } from "./quizzes/SudokuGame";
 import { MemoryMatch } from "./quizzes/MemoryMatch";
 import { MushroomMatchGame } from "./quizzes/MushroomMatchGame";
+import { TetrisGame } from "./quizzes/TetrisGame";
 import { MusicPlayer } from "./components/MusicPlayer";
 
 type MainViewState = 
   | "home" | "jellycat" | "coffee" | "aura" | "taylor" | "wordle" 
   | "ghibli" | "houseplant" | "disney" | "marvel" 
-  | "travel" | "sudoku" | "memory" | "mushroom";
+  | "travel" | "sudoku" | "memory" | "mushroom" | "tetris";
 
 export default function App() {
   const [currentView, setCurrentView] = useState<MainViewState>(() => {
@@ -121,6 +122,9 @@ export default function App() {
             )}
             {currentView === "mushroom" && (
               <MushroomMatchGame key="mushroom" />
+            )}
+            {currentView === "tetris" && (
+              <TetrisGame key="tetris" />
             )}
           </AnimatePresence>
         </div>

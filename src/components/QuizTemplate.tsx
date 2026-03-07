@@ -287,16 +287,16 @@ export function QuizTemplate<T extends BaseResult>({
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5, type: "spring" }}
-                  style={{ WebkitTransform: "translateZ(0)", WebkitMaskImage: "-webkit-radial-gradient(white, black)" }}
-                  className="relative w-56 h-56 mx-auto mb-8 rounded-full overflow-hidden border-8 border-white shadow-xl"
+                  className="relative w-48 h-48 sm:w-56 sm:h-56 mx-auto mb-8 rounded-full overflow-hidden border-8 border-white shadow-xl flex items-center justify-center isolate"
+                  style={{ maskImage: "-webkit-radial-gradient(white, black)" }}
                 >
                   <img
                     src={finalResult.imageUrl}
                     alt={finalResult.name}
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover drop-shadow-lg"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/5 mix-blend-overlay" />
+                  <div className="absolute inset-0 bg-black/5 mix-blend-overlay pointer-events-none" />
                 </motion.div>
 
                 <motion.div

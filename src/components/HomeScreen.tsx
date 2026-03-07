@@ -93,7 +93,7 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
       icon: <Stars className="w-6 h-6 text-amber-500" />,
       color: "bg-amber-100",
       image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop",
-      comingSoon: false,
+      comingSoon: true,
     },
     {
       id: "marvel",
@@ -102,7 +102,7 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
       icon: <Flame className="w-6 h-6 text-red-600" />,
       color: "bg-red-100",
       image: "https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=600&auto=format&fit=crop",
-      comingSoon: false,
+      comingSoon: true,
     }
   ];
 

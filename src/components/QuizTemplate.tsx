@@ -135,7 +135,7 @@ export function QuizTemplate<T extends BaseResult>({
   };
 
   const handleShare = async (result: T) => {
-    const shareUrl = `${window.location.origin}${window.location.pathname}?quiz=${quizId}&result=${result.id}`;
+    const shareUrl = `${window.location.origin}${window.location.pathname}?quiz=${quizId}`;
     const shareText = `I got ${result.name}! ✨ Take the quiz: ${shareUrl}`;
     
     try {

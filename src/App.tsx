@@ -16,12 +16,14 @@ import { SudokuGame } from "./quizzes/SudokuGame";
 import { MemoryMatch } from "./quizzes/MemoryMatch";
 import { MushroomMatchGame } from "./quizzes/MushroomMatchGame";
 import { TetrisGame } from "./quizzes/TetrisGame";
+import { SlidingPuzzle } from "./quizzes/SlidingPuzzle";
+import { BlackpinkQuiz } from "./quizzes/BlackpinkQuiz";
 import { MusicPlayer } from "./components/MusicPlayer";
 
 type MainViewState = 
   | "home" | "jellycat" | "coffee" | "aura" | "taylor" | "wordle" 
-  | "ghibli" | "houseplant" | "disney" | "marvel" 
-  | "travel" | "sudoku" | "memory" | "mushroom" | "tetris";
+  | "ghibli" | "houseplant" | "disney" | "marvel" | "blackpink"
+  | "travel" | "sudoku" | "memory" | "mushroom" | "tetris" | "slide";
 
 export default function App() {
   const [currentView, setCurrentView] = useState<MainViewState>(() => {
@@ -31,8 +33,8 @@ export default function App() {
       // Validate the quiz name against known views, fallback to home if invalid
       const validViews = [
         "jellycat", "coffee", "aura", "taylor", "wordle", 
-        "ghibli", "houseplant", "disney", "marvel", 
-        "travel", "sudoku", "memory", "mushroom"
+        "ghibli", "houseplant", "disney", "marvel", "blackpink",
+        "travel", "sudoku", "memory", "mushroom", "tetris", "slide"
       ];
       return validViews.includes(quiz) ? quiz : "home";
     }
@@ -47,7 +49,48 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-slate-800 font-sans selection:bg-rose-200 flex flex-col">
+    <div className="min-h-screen text-slate-800 font-sans selection:bg-rose-200 flex flex-col relative overflow-x-hidden">
+      {/* Dynamic Background Elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        {/* Base Background Color */}
+        <div className="absolute inset-0 bg-[#FDFBF7]" />
+        
+        <motion.div 
+          animate={{ 
+            x: [0, 40, 0], 
+            y: [0, 60, 0],
+            scale: [1, 1.1, 1]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[-10%] left-[-5%] w-[50%] h-[50%] bg-rose-200/60 rounded-full blur-[100px]"
+        />
+        <motion.div 
+          animate={{ 
+            x: [0, -50, 0], 
+            y: [0, 30, 0],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-amber-100/70 rounded-full blur-[120px]"
+        />
+        <motion.div 
+          animate={{ 
+            x: [0, 30, 0], 
+            y: [0, -40, 0]
+          }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute top-[20%] right-[5%] w-[35%] h-[35%] bg-indigo-100/60 rounded-full blur-[90px]"
+        />
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.3, 1],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-[20%] left-[10%] w-[25%] h-[25%] bg-emerald-100/50 rounded-full blur-[80px]"
+        />
+      </div>
+
       {/* Universal Top Banner */}
       <header className="sticky top-0 z-[100] w-full bg-white/80 backdrop-blur-md border-b border-rose-100 shadow-sm px-6 py-4 flex items-center justify-center overflow-hidden">
         {/* Floating Decorative Icons in Banner */}
@@ -111,6 +154,9 @@ export default function App() {
             {currentView === "marvel" && (
               <MarvelQuiz key="marvel" onBack={() => handleSetView("home")} />
             )}
+            {currentView === "blackpink" && (
+              <BlackpinkQuiz key="blackpink" onBack={() => handleSetView("home")} />
+            )}
             {currentView === "travel" && (
               <TravelQuiz key="travel" onBack={() => handleSetView("home")} />
             )}
@@ -125,6 +171,9 @@ export default function App() {
             )}
             {currentView === "tetris" && (
               <TetrisGame key="tetris" />
+            )}
+            {currentView === "slide" && (
+              <SlidingPuzzle key="slide" onBack={() => handleSetView("home")} />
             )}
           </AnimatePresence>
         </div>

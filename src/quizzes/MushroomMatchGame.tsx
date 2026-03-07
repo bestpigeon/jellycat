@@ -88,14 +88,13 @@ const findMatches = (board: Tile[][]) => {
 };
 
 export function MushroomMatchGame() {
-  const [board, setBoard] = useState<Tile[][]>([]);
+  const [board, setBoard] = useState<Tile[][]>(() => generateBoard());
   const [score, setScore] = useState(0);
   const [selected, setSelected] = useState<{r: number, c: number} | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
   useEffect(() => {
     window.history.replaceState({}, '', `?quiz=mushroom-match`);
-    setBoard(generateBoard());
   }, []);
 
   const processMatches = async (currentBoard: Tile[][], currentScore: number) => {

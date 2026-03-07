@@ -251,18 +251,18 @@ export function SudokuGame({ onBack }: { onBack: () => void }) {
 
   // Store the initial puzzle to check against later
   const initialBoard = useMemo(() => PUZZLES[puzzleIndex].map(row => [...row]), [puzzleIndex]);
-  const [board, setBoard] = useState(initialBoard.map(row => [...row]));
+  const [board, setBoard] = useState(() => initialBoard.map(row => [...row]));
   const [selectedCell, setSelectedCell] = useState<{ r: number, c: number } | null>(null);
 
   useEffect(() => {
     window.history.replaceState({}, '', `?quiz=sudoku`);
   }, []);
 
-  // Sync board when puzzleIndex changes
+  // Sync board when puzzleIndex changes (e.g. via loadNewPuzzle)
   useEffect(() => {
     setBoard(initialBoard.map(row => [...row]));
     setSelectedCell(null);
-  }, [initialBoard]);
+  }, [puzzleIndex, initialBoard]);
 
   const handleNumberClick = (num: number) => {
     if (selectedCell) {

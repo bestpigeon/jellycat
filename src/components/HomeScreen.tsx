@@ -10,14 +10,14 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
   const trendingQuizzes = [
     {
       id: "mushroom",
-      title: "Mushroom Match",
-      description: "A relaxing match-3 game with colorful woodland mushrooms.",
+      title: "Forest Match",
+      description: "A relaxing match-3 game with colorful woodland treasures.",
       icon: <TreePine className="w-6 h-6 text-orange-500" />,
       color: "bg-orange-100",
       image: "https://em-content.zobj.net/social/emoji/mushroom.png",
       comingSoon: false,
-    },
-    {
+    }
+    ];
       id: "blackpink",
       title: "Which Blackpink Member Are You?",
       description: "Find your Blackpink twin among the four icons.",

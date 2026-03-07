@@ -3,7 +3,15 @@ import { motion } from "motion/react";
 import { RefreshCcw, TreePine } from "lucide-react";
 
 const GRID_SIZE = 8;
-const NUM_TYPES = 6;
+const MUSHROOM_TYPES = [
+  { char: "🍄", color: "bg-red-50", label: "Amanita" },
+  { char: "🍄‍🟫", color: "bg-amber-50", label: "Woodland" },
+  { char: "🐚", color: "bg-blue-50", label: "Oyster" },
+  { char: "🌰", color: "bg-orange-50", label: "Chestnut" },
+  { char: "🍀", color: "bg-emerald-50", label: "Clover" },
+  { char: "🌸", color: "bg-pink-50", label: "Bloom" }
+];
+const NUM_TYPES = MUSHROOM_TYPES.length;
 
 interface Tile {
   id: string;
@@ -211,7 +219,7 @@ export function MushroomMatchGame() {
                 <TreePine className="w-6 h-6" />
               </div>
               <div className="text-left">
-                <h1 className="text-xl sm:text-2xl font-bold text-slate-900 font-serif leading-tight">Mushroom Match</h1>
+                <h1 className="text-xl sm:text-2xl font-bold text-slate-900 font-serif leading-tight">Forest Match</h1>
                 <p className="text-sm font-medium text-slate-500">Score: {score}</p>
               </div>
             </div>
@@ -238,15 +246,12 @@ export function MushroomMatchGame() {
                       className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center text-2xl sm:text-3xl cursor-pointer rounded-xl transition-colors select-none ${
                         isSelected 
                           ? 'bg-orange-200 shadow-md ring-2 ring-orange-400 z-10' 
-                          : 'bg-white shadow-sm hover:bg-orange-50'
+                          : tile.type !== -1 ? MUSHROOM_TYPES[tile.type].color + ' shadow-sm hover:opacity-80' : 'bg-white'
                       }`}
                     >
                       {tile.type !== -1 && (
-                        <span 
-                          style={{ filter: `hue-rotate(${tile.type * 60}deg)` }} 
-                          className="drop-shadow-sm pointer-events-none"
-                        >
-                          🍄
+                        <span className="drop-shadow-sm pointer-events-none">
+                          {MUSHROOM_TYPES[tile.type].char}
                         </span>
                       )}
                     </motion.div>
@@ -258,7 +263,7 @@ export function MushroomMatchGame() {
           
           <div className="mt-8 p-4 bg-orange-50 rounded-xl text-sm text-slate-600 text-left border border-orange-100 max-w-sm mx-auto">
             <p className="font-bold text-slate-800 mb-1">How to play:</p>
-            <p>Click a mushroom to select it, then click an adjacent one to swap them. Match 3 or more of the same color in a row or column to pop them and score points!</p>
+            <p>Click a forest item to select it, then click an adjacent one to swap them. Match 3 or more of the same type in a row or column to pop them and score points!</p>
           </div>
         </motion.div>
       )}

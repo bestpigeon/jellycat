@@ -12,7 +12,6 @@ import { HouseplantQuiz } from "./quizzes/HouseplantQuiz";
 import { DisneyQuiz } from "./quizzes/DisneyQuiz";
 import { MarvelQuiz } from "./quizzes/MarvelQuiz";
 import { TravelQuiz } from "./quizzes/TravelQuiz";
-import { SnackQuiz } from "./quizzes/SnackQuiz";
 import { SudokuGame } from "./quizzes/SudokuGame";
 import { MemoryMatch } from "./quizzes/MemoryMatch";
 import { MushroomMatchGame } from "./quizzes/MushroomMatchGame";
@@ -21,10 +20,30 @@ import { MusicPlayer } from "./components/MusicPlayer";
 type MainViewState = 
   | "home" | "jellycat" | "coffee" | "aura" | "taylor" | "wordle" 
   | "ghibli" | "houseplant" | "disney" | "marvel" 
-  | "travel" | "snack" | "sudoku" | "memory" | "mushroom";
+  | "travel" | "sudoku" | "memory" | "mushroom";
 
 export default function App() {
-  const [currentView, setCurrentView] = useState<MainViewState>("home");
+  const [currentView, setCurrentView] = useState<MainViewState>(() => {
+    const params = new URLSearchParams(window.location.search);
+    const quiz = params.get("quiz") as MainViewState;
+    if (quiz) {
+      // Validate the quiz name against known views, fallback to home if invalid
+      const validViews = [
+        "jellycat", "coffee", "aura", "taylor", "wordle", 
+        "ghibli", "houseplant", "disney", "marvel", 
+        "travel", "sudoku", "memory", "mushroom"
+      ];
+      return validViews.includes(quiz) ? quiz : "home";
+    }
+    return "home";
+  });
+
+  const handleSetView = (view: MainViewState) => {
+    setCurrentView(view);
+    if (view === "home") {
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] text-slate-800 font-sans selection:bg-rose-200 flex flex-col">
@@ -50,7 +69,7 @@ export default function App() {
         </div>
 
         <button 
-          onClick={() => setCurrentView("home")}
+          onClick={() => handleSetView("home")}
           className="relative z-10 group flex items-center gap-2 text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 font-serif hover:opacity-80 transition-opacity"
         >
           <Sparkles className="w-6 h-6 text-rose-500 group-hover:animate-pulse" />
@@ -62,46 +81,43 @@ export default function App() {
         <div className="w-full max-w-5xl mx-auto">
           <AnimatePresence mode="wait">
             {currentView === "home" && (
-              <HomeScreen key="home" onSelectQuiz={(id) => setCurrentView(id as MainViewState)} />
+              <HomeScreen key="home" onSelectQuiz={(id) => handleSetView(id as MainViewState)} />
             )}
             {currentView === "jellycat" && (
-              <JellycatQuiz key="jellycat" onBack={() => setCurrentView("home")} />
+              <JellycatQuiz key="jellycat" onBack={() => handleSetView("home")} />
             )}
             {currentView === "coffee" && (
-              <CoffeeQuiz key="coffee" onBack={() => setCurrentView("home")} />
+              <CoffeeQuiz key="coffee" onBack={() => handleSetView("home")} />
             )}
             {currentView === "aura" && (
-              <AuraQuiz key="aura" onBack={() => setCurrentView("home")} />
+              <AuraQuiz key="aura" onBack={() => handleSetView("home")} />
             )}
             {currentView === "taylor" && (
-              <TaylorQuiz key="taylor" onBack={() => setCurrentView("home")} />
+              <TaylorQuiz key="taylor" onBack={() => handleSetView("home")} />
             )}
             {currentView === "wordle" && (
-              <WordleGame key="wordle" onBack={() => setCurrentView("home")} />
+              <WordleGame key="wordle" onBack={() => handleSetView("home")} />
             )}
             {currentView === "ghibli" && (
-              <GhibliQuiz key="ghibli" onBack={() => setCurrentView("home")} />
+              <GhibliQuiz key="ghibli" onBack={() => handleSetView("home")} />
             )}
             {currentView === "houseplant" && (
-              <HouseplantQuiz key="houseplant" onBack={() => setCurrentView("home")} />
+              <HouseplantQuiz key="houseplant" onBack={() => handleSetView("home")} />
             )}
             {currentView === "disney" && (
-              <DisneyQuiz key="disney" onBack={() => setCurrentView("home")} />
+              <DisneyQuiz key="disney" onBack={() => handleSetView("home")} />
             )}
             {currentView === "marvel" && (
-              <MarvelQuiz key="marvel" onBack={() => setCurrentView("home")} />
+              <MarvelQuiz key="marvel" onBack={() => handleSetView("home")} />
             )}
             {currentView === "travel" && (
-              <TravelQuiz key="travel" onBack={() => setCurrentView("home")} />
-            )}
-            {currentView === "snack" && (
-              <SnackQuiz key="snack" onBack={() => setCurrentView("home")} />
+              <TravelQuiz key="travel" onBack={() => handleSetView("home")} />
             )}
             {currentView === "sudoku" && (
-              <SudokuGame key="sudoku" onBack={() => setCurrentView("home")} />
+              <SudokuGame key="sudoku" onBack={() => handleSetView("home")} />
             )}
             {currentView === "memory" && (
-              <MemoryMatch key="memory" onBack={() => setCurrentView("home")} />
+              <MemoryMatch key="memory" onBack={() => handleSetView("home")} />
             )}
             {currentView === "mushroom" && (
               <MushroomMatchGame key="mushroom" />

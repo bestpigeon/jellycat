@@ -7,6 +7,36 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
+  const trendingQuizzes = [
+    {
+      id: "mushroom",
+      title: "Mushroom Match",
+      description: "A relaxing match-3 game with colorful woodland mushrooms.",
+      icon: <TreePine className="w-6 h-6 text-orange-500" />,
+      color: "bg-orange-100",
+      image: "https://em-content.zobj.net/social/emoji/mushroom.png",
+      comingSoon: false,
+    },
+    {
+      id: "taylor",
+      title: "Which Taylor Swift Era Are You?",
+      description: "Are you a poetic folklore soul or a chaotic reputation baddie?",
+      icon: <Music className="w-6 h-6 text-purple-600" />,
+      color: "bg-purple-100",
+      image: "https://images.unsplash.com/photo-1698711864764-c9150adc9f36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dGF5bG9yJTIwc3dpZnR8ZW58MHx8MHx8fDA%3D",
+      comingSoon: false,
+    },
+    {
+      id: "jellycat",
+      title: "Which Jellycat Are You?",
+      description: "Find your plushie soulmate in this cozy quiz.",
+      icon: <Heart className="w-6 h-6 text-rose-500 fill-rose-500" />,
+      color: "bg-rose-100",
+      image: "https://t3.gstatic.com/images?q=tbn:ANd9GcQzgr8gWNgYWlMlXa_lml5zu_MlLwFRJwcgxrU7wQItNYw6hU_rNptA6tnpaf87Qw", 
+      comingSoon: false,
+    }
+  ];
+
   const dailyGames = [
     {
       id: "wordle",
@@ -34,28 +64,10 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
       color: "bg-rose-100",
       image: "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?q=80&w=600&auto=format&fit=crop",
       comingSoon: false,
-    },
-    {
-      id: "mushroom",
-      title: "Mushroom Match",
-      description: "A relaxing match-3 game with colorful woodland mushrooms.",
-      icon: <TreePine className="w-6 h-6 text-orange-500" />,
-      color: "bg-orange-100",
-      image: "https://em-content.zobj.net/social/emoji/mushroom.png",
-      comingSoon: false,
     }
   ];
 
   const popCultureQuizzes = [
-    {
-      id: "taylor",
-      title: "Which Taylor Swift Era Are You?",
-      description: "Are you a poetic folklore soul or a chaotic reputation baddie?",
-      icon: <Music className="w-6 h-6 text-purple-600" />,
-      color: "bg-purple-100",
-      image: "https://images.unsplash.com/photo-1698711864764-c9150adc9f36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dGF5bG9yJTIwc3dpZnR8ZW58MHx8MHx8fDA%3D",
-      comingSoon: false,
-    },
     {
       id: "ghibli",
       title: "Which Ghibli World Is Yours?",
@@ -86,15 +98,6 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
   ];
 
   const cozyCollections = [
-    {
-      id: "jellycat",
-      title: "Which Jellycat Are You?",
-      description: "Find your plushie soulmate in this cozy quiz.",
-      icon: <Heart className="w-6 h-6 text-rose-500 fill-rose-500" />,
-      color: "bg-rose-100",
-      image: "https://t3.gstatic.com/images?q=tbn:ANd9GcQzgr8gWNgYWlMlXa_lml5zu_MlLwFRJwcgxrU7wQItNYw6hU_rNptA6tnpaf87Qw", 
-      comingSoon: false,
-    },
     {
       id: "aura",
       title: "What's Your Aura Color?",
@@ -130,19 +133,10 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
       color: "bg-sky-100",
       image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600&auto=format&fit=crop",
       comingSoon: false,
-    },
-    {
-      id: "snack",
-      title: "What Snack Are You?",
-      description: "Crunchy, sweet, or salty? Find your snack twin.",
-      icon: <Pizza className="w-6 h-6 text-orange-400" />,
-      color: "bg-orange-50",
-      image: "https://images.unsplash.com/photo-1599490659213-e2b9527bb087?q=80&w=600&auto=format&fit=crop",
-      comingSoon: false,
     }
   ];
 
-  const allQuizzes = [...dailyGames, ...popCultureQuizzes, ...cozyCollections];
+  const allQuizzes = [...trendingQuizzes, ...dailyGames, ...popCultureQuizzes, ...cozyCollections];
 
   const searchResults = allQuizzes.filter(quiz => 
     quiz.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -303,6 +297,13 @@ export function HomeScreen({ onSelectQuiz }: { onSelectQuiz: (id: string) => voi
       </div>
 
       <div className="space-y-12">
+        <div>
+          <div className="flex items-center gap-2 mb-6 pl-2">
+            <Flame className="w-6 h-6 text-orange-500" />
+            <h2 className="text-2xl font-bold text-slate-900 font-serif">New & Trending</h2>
+          </div>
+          {renderQuizGrid(trendingQuizzes)}
+        </div>
         <div>
           <div className="flex items-center gap-2 mb-6 pl-2">
             <Gamepad2 className="w-6 h-6 text-indigo-500" />

@@ -20,7 +20,7 @@ export const results: Record<string, BaseResult> = {
     id: "pothos",
     name: "Golden Pothos",
     description: "You are incredibly resilient, adaptable, and easygoing. You can thrive in almost any situation and you're a supportive, low-maintenance friend.",
-    imageUrl: "https://images.unsplash.com/photo-1596547610332-9a3d463d19eb?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://pcfb.gumlet.io/images/articles/golden-pothos-in-hanging-basket.png?w=640&h=426&mode=crop&crop=smart&s=50e6ea2942716506fe3ebf1096ab111b",
     color: "bg-lime-100 text-lime-900",
     buttonColor: "bg-lime-600",
   },
@@ -36,7 +36,7 @@ export const results: Record<string, BaseResult> = {
     id: "calathea",
     name: "Calathea (Prayer Plant)",
     description: "You are sensitive, expressive, and deeply in tune with your environment. You have a strict routine and you let people know exactly how you're feeling.",
-    imageUrl: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "https://www.thetreecenter.com/c/uploads/2022/05/Calathea_Stock_image_1.webp",
     color: "bg-green-100 text-green-900",
     buttonColor: "bg-green-600",
   }
